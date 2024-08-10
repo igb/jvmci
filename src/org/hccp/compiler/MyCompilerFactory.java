@@ -10,7 +10,7 @@ public class MyCompilerFactory implements JVMCICompilerFactory {
     public String getCompilerName() {
 	System.out.println("calling factory");
 	System.out.flush();
-        return "org.hccp.compiler.MyCompiler";
+        return "org.hccp.compiler.MyCompilerFactory";
     }
 
     @Override
