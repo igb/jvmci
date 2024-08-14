@@ -3,14 +3,15 @@ package org.hccp.compiler;
 import jdk.vm.ci.runtime.JVMCICompiler;
 import jdk.vm.ci.runtime.JVMCICompilerFactory;
 import jdk.vm.ci.runtime.JVMCIRuntime;
+import jdk.vm.ci.services.JVMCIServiceLocator;
 
-public class MyCompilerFactory implements JVMCICompilerFactory {
+public class MyCompilerFactory  implements JVMCICompilerFactory {
 
     @Override
     public String getCompilerName() {
 	System.out.println("calling factory");
 	System.out.flush();
-        return "org.hccp.compiler.MyCompilerFactory";
+        return "hccp-jit";
     }
 
     @Override
@@ -20,5 +21,6 @@ public class MyCompilerFactory implements JVMCICompilerFactory {
 
         return new MyCompiler();
     }
+
 
 }

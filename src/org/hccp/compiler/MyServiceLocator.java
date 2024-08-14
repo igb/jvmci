@@ -1,18 +1,20 @@
 package org.hccp.compiler;
 
 
+import jdk.vm.ci.runtime.JVMCICompilerFactory;
 import jdk.vm.ci.services.JVMCIServiceLocator;
 import jdk.vm.ci.runtime.JVMCICompiler;
+
 
 public class MyServiceLocator extends JVMCIServiceLocator {
 
 
-    public <S> S getProvider(Class<S> service) {
-	return null;
-    }
-    
+    @Override
+    protected <S> S getProvider(Class<S> service) {
 
-    protected JVMCICompiler getCompiler() {
-        return new MyCompiler();
+        if (service == JVMCICompilerFactory.class) {
+            return service.cast(new MyCompilerFactory());
+        }
+        return null;
     }
 }
