@@ -7,7 +7,7 @@ class MyCompiler implements jdk.vm.ci.runtime.JVMCICompiler {
 
     public CompilationRequestResult compileMethod(CompilationRequest request) {
 
-	System.out.println("COMPILE!!!");
+	System.out.println("A request to compile " + request);
 	return new MyCompilationRequestResult();
     }
 
